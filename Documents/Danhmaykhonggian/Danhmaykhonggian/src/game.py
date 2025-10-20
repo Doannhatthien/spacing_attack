@@ -56,7 +56,7 @@ class Game:
         pygame.mixer.init()
 
         # Window & Display
-        self.win = pygame.display.set_mode((WIDTH, HEIGHT), pygame.HWSURFACE | pygame.DOUBLEBUF)
+        self.win = pygame.display.set_mode((WIDTH, HEIGHT), pygame.HWSURFACE | pygame.DOUBLEBUF | pygame.FULLSCREEN)
         pygame.display.set_caption("Space Typing Game")
         self.clock = pygame.time.Clock()
         self.delta_time = 0

@@ -21,8 +21,8 @@ def main():
     except Exception as e:
         print("Không thể tải hoặc phát nhạc nền:", e)
 
-    # Tạo display với hardware acceleration và vsync nếu có
-    flags = pygame.HWSURFACE | pygame.DOUBLEBUF
+    # Tạo display với hardware acceleration, vsync và FULLSCREEN
+    flags = pygame.HWSURFACE | pygame.DOUBLEBUF | pygame.FULLSCREEN
     screen = pygame.display.set_mode((WIDTH, HEIGHT), flags, vsync=1 if VSYNC else 0)
     pygame.display.set_caption("Space Typing Game")
 
