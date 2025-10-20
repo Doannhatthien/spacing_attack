@@ -58,6 +58,11 @@ def main():
                     running = False
                 else:
                     menu.handle(e)
+            
+            # Kiểm tra xem người chơi có nhấn Exit hoặc ESC không
+            if menu.should_quit:
+                running = False
+            
             menu.draw(screen)
             pygame.display.flip()
             clock.tick(FPS)

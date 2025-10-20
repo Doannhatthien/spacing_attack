@@ -41,13 +41,14 @@ class Game:
         - Game loop chính
     """
 
-    def __init__(self, music_file=None, video_background=None):
+    def __init__(self, music_file=None, video_background=None, challenge_speed=None):
         """
         Khởi tạo game.
         
         Args:
             music_file (str, optional): File nhạc nền. Mặc định "music3.mp3"
             video_background (VideoBackground, optional): Video làm background động
+            challenge_speed (float, optional): Tốc độ rơi cho Challenge mode
         """
         # Pygame initialization
         pygame.init()
@@ -63,6 +64,10 @@ class Game:
         
         # Video background (nếu có)
         self.video_background = video_background
+        
+        # Challenge mode speed
+        self.challenge_speed = challenge_speed
+        self.is_challenge_mode = challenge_speed is not None
 
         # Font & HUD
         self.font = pygame.font.SysFont("Arial", 32)
@@ -311,7 +316,13 @@ class Game:
         """
         now = pygame.time.get_ticks()
         if now - self.last_spawn_ms > SPAWN_DELAYMS:
-            new_enemy = Enemy(random.choice(WORDS), existing_enemies=self.enemies)
+            # Truyền challenge_speed nếu đang ở Challenge mode
+            new_enemy = Enemy(
+                random.choice(WORDS), 
+                existing_enemies=self.enemies,
+                use_challenge_speed=self.is_challenge_mode,
+                challenge_speed=self.challenge_speed
+            )
             self.enemies.append(new_enemy)
             self.last_spawn_ms = now
 

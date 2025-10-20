@@ -29,7 +29,6 @@ class Challenge:
 
     def run(self, level: int):
 
-        import src.settings as S
         from .game import Game  
 
         # --- 1) Chuẩn hóa level & thiết lập thông số ---
@@ -37,11 +36,8 @@ class Challenge:
         speed = CHALLENGE_LEVELS[level - 1]          
         target_kills = 8 + 2 * (level - 1)           
 
-        original_speed = S.ENEMY_SPEED
-        S.ENEMY_SPEED = speed
-
-        # --- 2) Tạo game và truyền tiêu chí qua màn ---
-        game = Game()
+        # --- 2) Tạo game và truyền challenge_speed ---
+        game = Game(challenge_speed=speed)
         game.background = self.background
         game.target_kills = target_kills
 
@@ -67,10 +63,7 @@ class Challenge:
             # người chơi đóng cửa sổ: không popup, sao = 0
             stars = 0
 
-        # --- 6) Khôi phục tốc độ gốc ---
-        S.ENEMY_SPEED = original_speed
-
-        # --- 7) Trả về cho main: (completed, stars, score, lives) ---
+        # --- 6) Trả về cho main: (completed, stars, score, lives) ---
         return completed, stars, score, lives_left
 
 

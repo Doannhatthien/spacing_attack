@@ -27,9 +27,9 @@ desktop.ini
 *.log
 
 # PyInstaller
-*.spec
 build/
 dist/
+*.spec.bak
 
 # Jupyter Notebook
 .ipynb_checkpoints

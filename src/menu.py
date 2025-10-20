@@ -68,6 +68,7 @@ class MainMenu:
         self.on_leaderboard = on_leaderboard
         self.title_font = load_font(FONT_BOLD, 64)
         self.subtitle_font = load_font(FONT_BOLD, 22)
+        self.should_quit = False  # Flag để báo hiệu thoát game
 
         cx = WIDTH // 2
         cy = HEIGHT // 2
@@ -77,7 +78,15 @@ class MainMenu:
             Button("Challenge",   (cx, cy + 40), self.on_challenge),
             Button("Leaderboard", (cx, cy + 130), self.on_leaderboard),
         ]
+        
+        # Nút Exit ở góc trái dưới
+        self.exit_button = Button("Exit", (100, HEIGHT - 50), self.on_exit, w=150, h=50)
+        
         self.background = background
+    
+    def on_exit(self):
+        """Callback khi nhấn nút Exit"""
+        self.should_quit = True
 
     def _draw_gradient_background(self, surf):
         top_color = (10, 10, 25)
@@ -119,7 +128,20 @@ class MainMenu:
         # Vẽ nút
         for b in self.buttons:
             b.draw(surf)
+        
+        # Vẽ nút Exit
+        self.exit_button.draw(surf)
 
     def handle(self, event):
+        # Xử lý phím ESC để thoát
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                self.should_quit = True
+                return
+        
+        # Xử lý các nút menu
         for b in self.buttons:
             b.handle(event)
+        
+        # Xử lý nút Exit
+        self.exit_button.handle(event)

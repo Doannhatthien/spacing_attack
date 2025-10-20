@@ -91,12 +91,22 @@ class LevelSelect:
             for rect, level, locked in self.buttons:
                 if not locked and rect.collidepoint(mx, my):
                     return level
+        
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                return -1  # Trả về -1 để báo hiệu thoát về menu
+        
         return None
 
     def draw(self, surf):
         self._draw_background(surf)
-        title_surf, _ = self.title_font.render("CHỌN LEVEL", (255, 255, 255))
+        title_surf, _ = self.title_font.render("SELECT LEVEL", (255, 255, 255))
         surf.blit(title_surf, title_surf.get_rect(center=(WIDTH//2, 100)))
+
+        # Hint text để thoát
+        hint_font = load_font(FONT_BOLD, 24)
+        hint_surf, _ = hint_font.render("Press ESC to return to menu", (200, 200, 200))
+        surf.blit(hint_surf, hint_surf.get_rect(center=(WIDTH//2, HEIGHT - 50)))
 
         for rect, level, locked in self.buttons:
             is_hover = (level == self.hover_level)

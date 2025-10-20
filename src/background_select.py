@@ -170,9 +170,9 @@ class BackgroundSelect:
                         shadow_points = [(x+2, y+2) for x, y in triangle_points]
                         pygame.draw.polygon(surf, (0, 0, 0, 128), shadow_points)
                         pygame.draw.polygon(surf, (255, 255, 255), triangle_points)
-                        
-                        # Label "ĐẶC BIỆT" thay vì "VIDEO"
-                        special_label, _ = self.info_font.render("⭐ ĐẶC BIỆT", (255, 215, 0))
+
+                        # Label "SECRECT" thay vì "VIDEO"
+                        special_label, _ = self.info_font.render("SECRECT", (255, 215, 0))
                         label_rect = special_label.get_rect(center=(center_x, draw_rect.bottom - 25))
                         surf.blit(special_label, label_rect)
                     else:
@@ -186,6 +186,6 @@ class BackgroundSelect:
                 idx += 1
 
         # Hint
-        hint = f"Page {self.page+1}/{max(1,(len(self.items)+self.per_page-1)//self.per_page)}  (A/D để chuyển trang, Esc để hủy)"
+        hint = f"Page {self.page+1}/{max(1,(len(self.items)+self.per_page-1)//self.per_page)}  (A/D to switch, Esc to cancel)"
         hint_surf, _ = self.info_font.render(hint, (200, 200, 200))
         surf.blit(hint_surf, hint_surf.get_rect(center=(WIDTH // 2, HEIGHT - 40)))

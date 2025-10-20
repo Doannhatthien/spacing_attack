@@ -18,6 +18,10 @@
     },
     {
       "name": "1",
+      "score": 840
+    },
+    {
+      "name": "1",
       "score": 790
     },
     {
@@ -151,6 +155,18 @@
     {
       "name": "Player",
       "score": 0
+    },
+    {
+      "name": "Player",
+      "score": 0
+    },
+    {
+      "name": "Player",
+      "score": 0
+    },
+    {
+      "name": "Player",
+      "score": 0
     }
   ],
   "challenge": [
@@ -195,6 +211,11 @@
       "lives": 3
     },
     {
+      "name": "Player",
+      "level": 2,
+      "lives": 3
+    },
+    {
       "name": "an",
       "level": 2,
       "lives": 0
@@ -217,7 +238,27 @@
     {
       "name": "Player",
       "level": 1,
+      "lives": 3
+    },
+    {
+      "name": "abc1234",
+      "level": 1,
+      "lives": 3
+    },
+    {
+      "name": "Player",
+      "level": 1,
       "lives": 1
+    },
+    {
+      "name": "Player",
+      "level": 1,
+      "lives": 0
+    },
+    {
+      "name": "Player",
+      "level": 1,
+      "lives": 0
     },
     {
       "name": "Player",

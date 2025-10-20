@@ -3,23 +3,39 @@ import pygame
 import math
 
 class Enemy:
-    def __init__(self, word: str, existing_enemies=None):
+    def __init__(self, word: str, existing_enemies=None, use_challenge_speed=False, challenge_speed=None):
         self.origin_word = word
         self.progress = 0  # Số ký tự đã gõ đúng
         
         # Vị trí xuất phát - TỰ ĐỘNG TRÁNH CÁC ENEMY KHÁC
         self.x, self.y = self._find_spawn_position(existing_enemies)
         
-        # Tốc độ phụ thuộc vào độ dài từ - CỰC CHẬM như trong video
+        # Tốc độ phụ thuộc vào độ dài từ
         word_length = len(word)
-        if word_length <= 4:  # Từ ngắn (3-4 ký tự) - Rơi cực chậm
-            self.base_speed = random.uniform(0.2, 0.35)  # Giảm thêm
-        elif word_length <= 7:  # Từ trung bình (5-7 ký tự) - Rơi siêu chậm
-            self.base_speed = random.uniform(0.15, 0.25)
-        elif word_length <= 10:  # Từ dài (8-10 ký tự) - Rơi cực kỳ chậm
-            self.base_speed = random.uniform(0.1, 0.2)
-        else:  # Từ rất dài (11+ ký tự) - Rơi như rùa bò
-            self.base_speed = random.uniform(0.08, 0.15)
+        
+        if use_challenge_speed and challenge_speed is not None:
+            # CHALLENGE MODE: Sử dụng tốc độ từ CHALLENGE_LEVELS
+            # Điều chỉnh theo độ dài từ (nhân hệ số)
+            if word_length <= 4:  # Từ ngắn - Rơi nhanh hơn
+                speed_multiplier = 1.2
+            elif word_length <= 7:  # Từ trung bình
+                speed_multiplier = 1.0
+            elif word_length <= 10:  # Từ dài - Rơi chậm hơn
+                speed_multiplier = 0.8
+            else:  # Từ rất dài - Rơi rất chậm
+                speed_multiplier = 0.6
+            
+            self.base_speed = challenge_speed * speed_multiplier
+        else:
+            # CLASSIC MODE: Giữ nguyên logic cũ - tốc độ cực chậm
+            if word_length <= 4:  # Từ ngắn (3-4 ký tự) - Rơi cực chậm
+                self.base_speed = random.uniform(0.2, 0.35)  # Giảm thêm
+            elif word_length <= 7:  # Từ trung bình (5-7 ký tự) - Rơi siêu chậm
+                self.base_speed = random.uniform(0.15, 0.25)
+            elif word_length <= 10:  # Từ dài (8-10 ký tự) - Rơi cực kỳ chậm
+                self.base_speed = random.uniform(0.1, 0.2)
+            else:  # Từ rất dài (11+ ký tự) - Rơi như rùa bò
+                self.base_speed = random.uniform(0.08, 0.15)
         
         self.speed = self.base_speed
         
@@ -258,4 +274,3 @@ class Enemy:
         
         # Vẽ speed indicator bar - LOẠI BỎ vì tốc độ đều và chậm
         # if self.speed > 0.6:
-        #     ... (code removed)
