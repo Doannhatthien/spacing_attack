@@ -6,7 +6,7 @@ import pygame
 from .settings import WIDTH, HEIGHT, WHITE
 from .utils import load_font, safe_json_load, safe_json_save
 
-DEFAULT_DATA_FILE = Path("assets/save/leaderboard.json")
+DEFAULT_DATA_FILE = Path("save/leaderboard.json")
 
 
 def render_text(font, text, color):
