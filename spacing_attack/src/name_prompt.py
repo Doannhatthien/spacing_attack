@@ -1,17 +1,24 @@
 import pygame
-from .settings import WIDTH, HEIGHT
+from .settings import WIDTH, HEIGHT, FONT_BOLD, FPS
 from .utils import load_font
 
 class NamePrompt:
+    """
+    Màn hình nhập tên người chơi sau khi chơi xong.
+    
+    Attributes:
+        user_quit (bool): Flag báo hiệu người dùng đã nhấn X (QUIT) hoặc ESC
+    """
     def __init__(self, title="Enter your name"):
         self.title = title
-        self.font_title = load_font(None, 50)
-        self.font_input = load_font(None, 40)
-        self.font_hint  = load_font(None, 22)
+        self.font_title = load_font(FONT_BOLD, 50)
+        self.font_input = load_font(FONT_BOLD, 40)
+        self.font_hint  = load_font(FONT_BOLD, 22)
         self.text = ""
         self.active = True
         self.hover = False
         self.placeholder = "Your name here..."
+        self.user_quit = False  # Flag để báo hiệu người dùng muốn thoát
 
     def _draw_gradient_background(self, surf):
         # Gradient nền
@@ -34,8 +41,19 @@ class NamePrompt:
         surf.blit(glow, (0, 0))
 
     def run(self, screen, background=None, default_if_empty="Player"):
+        """
+        Chạy màn hình nhập tên.
+        
+        Returns:
+            str: Tên người chơi nhập vào, hoặc default_if_empty
+            
+        Side effects:
+            - Set self.user_quit = True nếu người dùng nhấn X (QUIT)
+            - Set self.user_quit = False nếu người dùng nhấn ENTER hoặc ESC
+        """
         clock = pygame.time.Clock()
         pygame.key.start_text_input()
+        self.user_quit = False  # Reset flag
 
         base_box_w, box_h = 500, 70
         rect = pygame.Rect((WIDTH - base_box_w)//2, HEIGHT//2 - box_h//2, base_box_w, box_h)
@@ -43,17 +61,26 @@ class NamePrompt:
         while self.active:
             for e in pygame.event.get():
                 if e.type == pygame.QUIT:
+                    # Người dùng nhấn X - muốn THOÁT GAME HOÀN TOÀN
                     pygame.key.stop_text_input()
-                    return default_if_empty or "Player"
+                    self.user_quit = True  # Set flag
+                    self.active = False  # Dừng vòng lặp
+                    return "__QUIT__"  # Trả về giá trị đặc biệt
                 if e.type == pygame.KEYDOWN:
                     if e.key == pygame.K_ESCAPE:
+                        # Người dùng nhấn ESC - chỉ CANCEL nhập tên, VỀ MENU
                         pygame.key.stop_text_input()
+                        self.user_quit = False  # Không thoát game, chỉ về menu
+                        self.active = False  # Dừng vòng lặp
                         return default_if_empty or "Player"
                     if e.key == pygame.K_BACKSPACE:
                         if self.text:
                             self.text = self.text[:-1]
                     if e.key in (pygame.K_RETURN, pygame.K_KP_ENTER):
+                        # Người dùng xác nhận tên
                         pygame.key.stop_text_input()
+                        self.user_quit = False
+                        self.active = False  # Dừng vòng lặp
                         name = self.text.strip()
                         return name if name else (default_if_empty or "Player")
                 elif e.type == pygame.TEXTINPUT:
@@ -111,4 +138,4 @@ class NamePrompt:
             screen.blit(hint_surf, hint_surf.get_rect(center=(WIDTH//2, HEIGHT//2 + 90)))
 
             pygame.display.flip()
-            clock.tick(60)
+            clock.tick(FPS)
