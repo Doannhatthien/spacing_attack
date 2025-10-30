@@ -1,13 +1,376 @@
 {
   "classic": [
     {
-      "name": "Player",
-      "score": 100
+      "name": "thung",
+      "score": 4170
     },
     {
-      "name": "toan",
-      "score": 4
+      "name": "Player",
+      "score": 3870
+    },
+    {
+      "name": "Player",
+      "score": 3510
+    },
+    {
+      "name": "thien hay nhat the gioi",
+      "score": 2600
+    },
+    {
+      "name": "Player",
+      "score": 2120
+    },
+    {
+      "name": "Player",
+      "score": 1870
+    },
+    {
+      "name": "thien",
+      "score": 1750
+    },
+    {
+      "name": "Player",
+      "score": 1560
+    },
+    {
+      "name": "Player",
+      "score": 1470
+    },
+    {
+      "name": "Player",
+      "score": 1320
+    },
+    {
+      "name": "Player",
+      "score": 1180
+    },
+    {
+      "name": "Player",
+      "score": 1040
+    },
+    {
+      "name": "Player",
+      "score": 860
+    },
+    {
+      "name": "1",
+      "score": 840
+    },
+    {
+      "name": "1",
+      "score": 790
+    },
+    {
+      "name": "thien",
+      "score": 740
+    },
+    {
+      "name": "Player",
+      "score": 700
+    },
+    {
+      "name": "Player",
+      "score": 680
+    },
+    {
+      "name": "Player",
+      "score": 680
+    },
+    {
+      "name": "Player",
+      "score": 610
+    },
+    {
+      "name": "Player",
+      "score": 610
+    },
+    {
+      "name": "Player",
+      "score": 590
+    },
+    {
+      "name": "Player",
+      "score": 560
+    },
+    {
+      "name": "thien",
+      "score": 540
+    },
+    {
+      "name": "Player",
+      "score": 530
+    },
+    {
+      "name": "Player",
+      "score": 520
+    },
+    {
+      "name": "Player",
+      "score": 510
+    },
+    {
+      "name": "TAN",
+      "score": 500
+    },
+    {
+      "name": "Player",
+      "score": 500
+    },
+    {
+      "name": "123",
+      "score": 480
+    },
+    {
+      "name": "Player",
+      "score": 450
+    },
+    {
+      "name": "Player",
+      "score": 420
+    },
+    {
+      "name": "quyen",
+      "score": 410
+    },
+    {
+      "name": "dung",
+      "score": 400
+    },
+    {
+      "name": "Player",
+      "score": 380
+    },
+    {
+      "name": "Player",
+      "score": 360
+    },
+    {
+      "name": "Player",
+      "score": 340
+    },
+    {
+      "name": "Player",
+      "score": 340
+    },
+    {
+      "name": "Player",
+      "score": 340
+    },
+    {
+      "name": "Player",
+      "score": 320
+    },
+    {
+      "name": "Player",
+      "score": 300
+    },
+    {
+      "name": "Player",
+      "score": 300
+    },
+    {
+      "name": "Player",
+      "score": 260
+    },
+    {
+      "name": "Player",
+      "score": 260
+    },
+    {
+      "name": "Player",
+      "score": 240
+    },
+    {
+      "name": "Player",
+      "score": 240
+    },
+    {
+      "name": "Player",
+      "score": 230
+    },
+    {
+      "name": "Player",
+      "score": 230
+    },
+    {
+      "name": "thien",
+      "score": 200
+    },
+    {
+      "name": "Player",
+      "score": 200
     }
   ],
-  "challenge": []
+  "challenge": [
+    {
+      "name": "Player",
+      "level": 8,
+      "lives": 0
+    },
+    {
+      "name": "Player",
+      "level": 8,
+      "lives": 0
+    },
+    {
+      "name": "Player",
+      "level": 8,
+      "lives": 0
+    },
+    {
+      "name": "Player",
+      "level": 8,
+      "lives": 0
+    },
+    {
+      "name": "thien",
+      "level": 7,
+      "lives": 2
+    },
+    {
+      "name": "Player",
+      "level": 7,
+      "lives": 0
+    },
+    {
+      "name": "Player",
+      "level": 6,
+      "lives": 3
+    },
+    {
+      "name": "Player",
+      "level": 5,
+      "lives": 3
+    },
+    {
+      "name": "Player",
+      "level": 5,
+      "lives": 0
+    },
+    {
+      "name": "thien",
+      "level": 4,
+      "lives": 3
+    },
+    {
+      "name": "thung",
+      "level": 3,
+      "lives": 3
+    },
+    {
+      "name": "Player",
+      "level": 3,
+      "lives": 2
+    },
+    {
+      "name": "Player",
+      "level": 3,
+      "lives": 1
+    },
+    {
+      "name": "Player",
+      "level": 3,
+      "lives": 0
+    },
+    {
+      "name": "Player",
+      "level": 3,
+      "lives": 0
+    },
+    {
+      "name": "Player",
+      "level": 3,
+      "lives": 0
+    },
+    {
+      "name": "thien",
+      "level": 2,
+      "lives": 3
+    },
+    {
+      "name": "Player",
+      "level": 2,
+      "lives": 3
+    },
+    {
+      "name": "Player",
+      "level": 2,
+      "lives": 2
+    },
+    {
+      "name": "an",
+      "level": 2,
+      "lives": 0
+    },
+    {
+      "name": "Player",
+      "level": 2,
+      "lives": 0
+    },
+    {
+      "name": "Player",
+      "level": 2,
+      "lives": 0
+    },
+    {
+      "name": "thien",
+      "level": 1,
+      "lives": 3
+    },
+    {
+      "name": "Player",
+      "level": 1,
+      "lives": 3
+    },
+    {
+      "name": "abc1234",
+      "level": 1,
+      "lives": 3
+    },
+    {
+      "name": "Player",
+      "level": 1,
+      "lives": 1
+    },
+    {
+      "name": "Player",
+      "level": 1,
+      "lives": 0
+    },
+    {
+      "name": "Player",
+      "level": 1,
+      "lives": 0
+    },
+    {
+      "name": "Player",
+      "level": 1,
+      "lives": 0
+    },
+    {
+      "name": "Player",
+      "level": 1,
+      "lives": 0
+    },
+    {
+      "name": "Player",
+      "level": 1,
+      "lives": 0
+    },
+    {
+      "name": "Player",
+      "level": 1,
+      "lives": 0
+    },
+    {
+      "name": "Player",
+      "level": 1,
+      "lives": 0
+    },
+    {
+      "name": "Player",
+      "level": 1,
+      "lives": 0
+    }
+  ]
 }
