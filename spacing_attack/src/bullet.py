@@ -4,14 +4,13 @@ from .settings import WIDTH, SHIP_Y, WHITE
 
 class Bullet:
     """
-    Viên đạn gắn với 1 enemy cụ thể và 1 ký tự người chơi vừa gõ.
+    Viên đạn gắn với 1 enemy cụ thể và bay tới vị trí ký tự target.
     Bay tới vị trí ký tự (snapshot) và biến mất khi chạm tới đó.
     """
-    def __init__(self, target_enemy, typed_char: str, font: pygame.font.Font, char_index: int):
+    def __init__(self, target_enemy, font: pygame.font.Font, char_index: int):
         self.x = WIDTH // 2
         self.y = SHIP_Y
         self.target_enemy = target_enemy
-        self.typed_char = typed_char
         self.char_index = char_index  # Vị trí ký tự trong từ
         self.font = font
         self.hit = False  # Đã chạm mục tiêu hay chưa
@@ -28,7 +27,7 @@ class Bullet:
 
         self.dir_x = dx / distance
         self.dir_y = dy / distance
-        self.speed = 12  # tốc độ bay
+        self.speed = 10  # Giảm tốc độ viên đạn để phù hợp với game chậm hơn
 
     def _compute_char_position(self):
         """Tính tọa độ ký tự đích dựa trên char_index (tại thời điểm hiện tại)."""
@@ -79,5 +78,5 @@ class Bullet:
         return self.hit
 
     def is_out_of_bounds(self) -> bool:
-        """Ra ngoài màn hình chưa (phòng hờ)."""
+        """Ra ngoài màn hình chưa."""
         return self.y < -10 or self.y > 800 or self.x < -10 or self.x > WIDTH + 10
